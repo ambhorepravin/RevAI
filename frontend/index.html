@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RevAI — Smart Lecture Notes & Flashcards</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="navbar-inner">
+      <div class="logo">
+        <div class="logo-mark"></div>
+        <h1>Rev<span>AI</span></h1>
+      </div>
+      <p class="subtitle">Turn multiple lecture videos into clear study notes &amp; flashcards</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+      <span class="pill-tag">Smart Study Companion</span>
+      <h2>Study Faster from Multiple Lectures</h2>
+      <p>Combine videos on the same subject into organized revision notes and active-recall flashcards in seconds.</p>
+    </section>
+
+    <!-- Input Panel -->
+    <section class="card input-section">
+      <div class="section-header">
+        <h3>Add Your Study Material</h3>
+        <p class="helper-text">
+          Enter your subject name and paste a YouTube video link (or raw transcript text). Add more videos to merge them into one study guide.
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label for="topicInput">Subject / Topic Name</label>
+        <input
+          type="text"
+          id="topicInput"
+          placeholder="e.g., Photosynthesis, Supply & Demand, or Intro to Python"
+        />
+      </div>
+
+      <div id="videoList" class="video-list">
+        <div class="video-item">
+          <div class="video-label-row">
+            <label>Lecture Video or Transcript #1</label>
+          </div>
+          <textarea
+            class="video-input"
+            rows="3"
+            placeholder="Paste a YouTube link (e.g., https://youtu.be/...) or paste lecture notes here"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="button-row">
+        <button id="addVideoBtn" type="button" class="btn secondary-btn">+ Add Another Video</button>
+        <button id="generateBtn" type="button" class="btn primary-btn">Create Study Notes &amp; Flashcards</button>
+      </div>
+
+      <div id="statusBox" class="status-box hidden"></div>
+    </section>
+
+    <!-- Output Dashboard (Hidden by default until generated) -->
+    <section id="outputSection" class="output-section hidden">
+      <div class="stats-bar" id="statsBar"></div>
+
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="notesTab">Revision Notes</button>
+        <button class="tab-btn" data-tab="flashcardsTab">Practice Flashcards</button>
+      </div>
+
+      <!-- Tab 1: Unified Notes -->
+      <div id="notesTab" class="tab-content active">
+        <div id="notesContainer" class="notes-container"></div>
+      </div>
+
+      <!-- Tab 2: Interactive Flashcards -->
+      <div id="flashcardsTab" class="tab-content">
+        <p class="helper-text flashcard-hint">Click any flashcard to flip between the question and answer.</p>
+        <div id="flashcardsContainer" class="flashcards-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
